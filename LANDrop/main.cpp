@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     a.setOrganizationName("yvbbrjdr");
     a.setOrganizationDomain("yvb.moe");
     a.setApplicationName("LANDrop");
-    a.setApplicationVersion("0.1.0");
+    a.setApplicationVersion("0.1.0-beta1");
 
     a.setQuitOnLastWindowClosed(false);
 

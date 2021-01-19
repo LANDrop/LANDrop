@@ -53,5 +53,5 @@ private:
 private slots:
     void sendActionTriggered();
     void exitActionTriggered();
-    void trayIconActivated(ActivationReason reason);
+    void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
 };

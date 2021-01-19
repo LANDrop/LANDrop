@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/about.png</file>
+        <file>icons/exit.png</file>
+        <file>icons/send.png</file>
+        <file>icons/settings.png</file>
+        <file>icons/app.png</file>
+    </qresource>
+</RCC>

@@ -57,22 +57,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Crypto</name>
     <message>
-        <location filename="../crypto.cpp" line="33"/>
+        <location filename="../crypto.cpp" line="65"/>
         <source>Unable to calculate session key.</source>
         <translation>无法计算会话密钥。</translation>
     </message>
     <message>
-        <location filename="../crypto.cpp" line="62"/>
+        <location filename="../crypto.cpp" line="94"/>
         <source>Cipher text too short.</source>
         <translation>密文太短。</translation>
     </message>
     <message>
-        <location filename="../crypto.cpp" line="73"/>
+        <location filename="../crypto.cpp" line="105"/>
         <source>Decryption failed.</source>
         <translation>解密失败。</translation>
     </message>
     <message>
-        <location filename="../crypto.cpp" line="82"/>
+        <location filename="../crypto.cpp" line="114"/>
         <source>Unable to initialize libsodium.</source>
         <translation>无法初始化 libsodium。</translation>
     </message>
@@ -80,7 +80,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>DiscoveryService</name>
     <message>
-        <location filename="../discoveryservice.cpp" line="20"/>
+        <location filename="../discoveryservice.cpp" line="52"/>
         <source>Unable to bind to port %1.
 Your machine won&apos;t be discoverable.</source>
         <translation>无法绑定端口 %1。
@@ -95,24 +95,24 @@ Your machine won&apos;t be discoverable.</source>
         <translation>正在传输</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="46"/>
+        <location filename="../filetransferdialog.cpp" line="78"/>
         <source>%1 would like to share a file &quot;%2&quot; of size %3.</source>
         <translation>%1 想要分享一个大小为 %3 的文件 &quot;%2&quot;。</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="49"/>
+        <location filename="../filetransferdialog.cpp" line="81"/>
         <source>%1 would like to share %2 files of total size %3.</source>
         <translation>%1 想要分享总大小为 %3 的 %2 个文件。</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="52"/>
+        <location filename="../filetransferdialog.cpp" line="84"/>
         <source>
 Confirm that the code &quot;%1&quot; is shown on the sending device.</source>
         <translation>
 请确认发送设备上显示了验证码 &quot;%1&quot;。</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="53"/>
+        <location filename="../filetransferdialog.cpp" line="85"/>
         <source>
 Would you like to receive it?</source>
         <translation>
@@ -122,7 +122,7 @@ Would you like to receive it?</source>
 <context>
     <name>FileTransferServer</name>
     <message>
-        <location filename="../filetransferserver.cpp" line="9"/>
+        <location filename="../filetransferserver.cpp" line="41"/>
         <source>Unable to listen on a port.</source>
         <translation>无法监听任何端口。</translation>
     </message>
@@ -130,55 +130,55 @@ Would you like to receive it?</source>
 <context>
     <name>FileTransferSession</name>
     <message>
-        <location filename="../filetransfersession.cpp" line="32"/>
+        <location filename="../filetransfersession.cpp" line="64"/>
         <source>Handshaking...</source>
         <translation>正在握手...</translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="40"/>
+        <location filename="../filetransfersession.cpp" line="72"/>
         <source>Cannot create download path: </source>
         <translation>无法创建下载路径： </translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="44"/>
+        <location filename="../filetransfersession.cpp" line="76"/>
         <source>Download path is not writable: </source>
         <translation>下载路径不可写： </translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="73"/>
-        <location filename="../filetransfersession.cpp" line="83"/>
-        <location filename="../filetransfersession.cpp" line="196"/>
+        <location filename="../filetransfersession.cpp" line="105"/>
+        <location filename="../filetransfersession.cpp" line="115"/>
+        <location filename="../filetransfersession.cpp" line="228"/>
         <source>Handshake failed.</source>
         <translation>握手失败。</translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="88"/>
+        <location filename="../filetransfersession.cpp" line="120"/>
         <source>The receiving device rejected your file(s).</source>
         <translation>接收设备拒绝了你的文件。</translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="172"/>
+        <location filename="../filetransfersession.cpp" line="204"/>
         <source>Unable to open file %1.</source>
         <translation>无法打开文件 %1。</translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="176"/>
+        <location filename="../filetransfersession.cpp" line="208"/>
         <source>Receiving file %1...</source>
         <translation>正在接收文件 %1...</translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="184"/>
-        <location filename="../filetransfersession.cpp" line="273"/>
+        <location filename="../filetransfersession.cpp" line="216"/>
+        <location filename="../filetransfersession.cpp" line="305"/>
         <source>Done!</source>
         <translation>完成！</translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="209"/>
+        <location filename="../filetransfersession.cpp" line="241"/>
         <source>Handshaking... Code: %1</source>
         <translation>正在握手... 验证码：%1</translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="267"/>
+        <location filename="../filetransfersession.cpp" line="299"/>
         <source>Sending file %1...</source>
         <translation>正在发送文件 %1...</translation>
     </message>
@@ -186,7 +186,7 @@ Would you like to receive it?</source>
 <context>
     <name>Main</name>
     <message>
-        <location filename="../main.cpp" line="24"/>
+        <location filename="../main.cpp" line="56"/>
         <source>Your system needs to support tray icon.</source>
         <translation>你的系统需要支持托盘图标。</translation>
     </message>
@@ -214,12 +214,12 @@ Would you like to receive it?</source>
         <translation>端口</translation>
     </message>
     <message>
-        <location filename="../sendtodialog.cpp" line="66"/>
+        <location filename="../sendtodialog.cpp" line="98"/>
         <source>Invalid port. Please enter a number between 1 and 65535.</source>
         <translation>无效端口。请输入一个 1 到 65535 的数字。</translation>
     </message>
     <message>
-        <location filename="../sendtodialog.cpp" line="110"/>
+        <location filename="../sendtodialog.cpp" line="142"/>
         <source>Connection timed out</source>
         <translation>连接超时</translation>
     </message>
@@ -247,7 +247,7 @@ Would you like to receive it?</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../settingsdialog.cpp" line="27"/>
+        <location filename="../settingsdialog.cpp" line="59"/>
         <source>Select Download Path</source>
         <translation>选择下载路径</translation>
     </message>
@@ -255,47 +255,52 @@ Would you like to receive it?</source>
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../trayicon.cpp" line="22"/>
+        <location filename="../trayicon.cpp" line="55"/>
         <source>Send File(s)...</source>
         <translation>发送文件...</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="24"/>
+        <location filename="../trayicon.cpp" line="57"/>
         <source>Settings...</source>
         <translation>设置...</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="27"/>
+        <location filename="../trayicon.cpp" line="60"/>
         <source>About...</source>
         <translation>关于...</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="29"/>
+        <location filename="../trayicon.cpp" line="62"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="38"/>
+        <location filename="../trayicon.cpp" line="71"/>
         <source>Port: </source>
         <translation>端口： </translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="45"/>
+        <location filename="../trayicon.cpp" line="76"/>
+        <source> is launched here.</source>
+        <translation> 已隐藏于托盘。</translation>
+    </message>
+    <message>
+        <location filename="../trayicon.cpp" line="82"/>
         <source>Select File(s) to be Sent</source>
         <translation>请选择想要发送的文件</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="54"/>
+        <location filename="../trayicon.cpp" line="91"/>
         <source>Unable to open file %1. Skipping.</source>
         <translation>无法打开文件 %1。已跳过该文件。</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="60"/>
+        <location filename="../trayicon.cpp" line="97"/>
         <source>%1 is not a regular file. Skipping.</source>
         <translation>%1 不是一个普通文件。已跳过该文件。</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="68"/>
+        <location filename="../trayicon.cpp" line="105"/>
         <source>No file to be sent.</source>
         <translation>无文件可发送。</translation>
     </message>

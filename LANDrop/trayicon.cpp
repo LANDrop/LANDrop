@@ -34,6 +34,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QIcon>
+#include <QTimer>
 
 #include "sendtodialog.h"
 #include "trayicon.h"
@@ -70,6 +71,10 @@ TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
     addrPortAction->setText(tr("Port: ") + QString::number(server.port()));
 
     discoveryService.start(server.port());
+
+    QTimer::singleShot(0, this, [this]() {
+        showMessage(QApplication::applicationName(), QApplication::applicationName() + tr(" is launched here."));
+    });
 }
 
 void TrayIcon::sendActionTriggered()

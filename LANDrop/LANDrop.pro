@@ -43,4 +43,5 @@ TRANSLATIONS += \
 RC_ICONS = icons/app.ico
 ICON = icons/app.icns
 
-LIBS += -lsodium
+INCLUDEPATH += /usr/local/include
+LIBS += -L/usr/local/lib -lsodium

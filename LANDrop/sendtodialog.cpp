@@ -42,6 +42,7 @@ SendToDialog::SendToDialog(QWidget *parent, const QList<QSharedPointer<QFile>> &
     QDialog(parent), ui(new Ui::SendToDialog), files(files)
 {
     ui->setupUi(this);
+    setWindowFlag(Qt::WindowStaysOnTopHint);
     ui->hostsListView->setModel(&hostsStringListModel);
     ui->hostsListView->setEditTriggers(QListView::NoEditTriggers);
     connect(ui->hostsListView, &QListView::clicked, this, &SendToDialog::hostsListViewClicked);

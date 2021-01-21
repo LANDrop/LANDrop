@@ -40,6 +40,7 @@ FileTransferDialog::FileTransferDialog(QWidget *parent, FileTransferSession::Tra
     QDialog(parent), ui(new Ui::FileTransferDialog), session(nullptr, dir, socket, files)
 {
     ui->setupUi(this);
+    setWindowFlag(Qt::WindowStaysOnTopHint);
 
     connect(&session, &FileTransferSession::printMessage, ui->statusLabel, &QLabel::setText);
     connect(&session, &FileTransferSession::updateProgress, this, &FileTransferDialog::sessionUpdateProgress);

@@ -39,6 +39,7 @@
 SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), ui(new Ui::SettingsDialog)
 {
     ui->setupUi(this);
+    setWindowFlag(Qt::WindowStaysOnTopHint);
     connect(ui->downloadPathSelectButton, &QToolButton::clicked, this, &SettingsDialog::downloadPathSelectButtonClicked);
 }
 

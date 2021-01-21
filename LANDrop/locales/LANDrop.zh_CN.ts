@@ -95,24 +95,24 @@ Your machine won&apos;t be discoverable.</source>
         <translation>正在传输</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="78"/>
+        <location filename="../filetransferdialog.cpp" line="79"/>
         <source>%1 would like to share a file &quot;%2&quot; of size %3.</source>
         <translation>%1 想要分享一个大小为 %3 的文件 &quot;%2&quot;。</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="81"/>
+        <location filename="../filetransferdialog.cpp" line="82"/>
         <source>%1 would like to share %2 files of total size %3.</source>
         <translation>%1 想要分享总大小为 %3 的 %2 个文件。</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="84"/>
+        <location filename="../filetransferdialog.cpp" line="85"/>
         <source>
 Confirm that the code &quot;%1&quot; is shown on the sending device.</source>
         <translation>
 请确认发送设备上显示了验证码 &quot;%1&quot;。</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="85"/>
+        <location filename="../filetransferdialog.cpp" line="86"/>
         <source>
 Would you like to receive it?</source>
         <translation>
@@ -214,12 +214,12 @@ Would you like to receive it?</source>
         <translation>端口</translation>
     </message>
     <message>
-        <location filename="../sendtodialog.cpp" line="98"/>
+        <location filename="../sendtodialog.cpp" line="99"/>
         <source>Invalid port. Please enter a number between 1 and 65535.</source>
         <translation>无效端口。请输入一个 1 到 65535 的数字。</translation>
     </message>
     <message>
-        <location filename="../sendtodialog.cpp" line="142"/>
+        <location filename="../sendtodialog.cpp" line="143"/>
         <source>Connection timed out</source>
         <translation>连接超时</translation>
     </message>
@@ -247,7 +247,7 @@ Would you like to receive it?</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../settingsdialog.cpp" line="59"/>
+        <location filename="../settingsdialog.cpp" line="60"/>
         <source>Select Download Path</source>
         <translation>选择下载路径</translation>
     </message>
@@ -255,52 +255,52 @@ Would you like to receive it?</source>
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../trayicon.cpp" line="55"/>
+        <location filename="../trayicon.cpp" line="57"/>
         <source>Send File(s)...</source>
         <translation>发送文件...</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="57"/>
+        <location filename="../trayicon.cpp" line="59"/>
         <source>Settings...</source>
         <translation>设置...</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="60"/>
+        <location filename="../trayicon.cpp" line="62"/>
         <source>About...</source>
         <translation>关于...</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="62"/>
+        <location filename="../trayicon.cpp" line="64"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="71"/>
+        <location filename="../trayicon.cpp" line="73"/>
         <source>Port: </source>
         <translation>端口： </translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="76"/>
+        <location filename="../trayicon.cpp" line="78"/>
         <source> is launched here.</source>
         <translation> 已隐藏于托盘。</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="82"/>
+        <location filename="../trayicon.cpp" line="84"/>
         <source>Select File(s) to be Sent</source>
         <translation>请选择想要发送的文件</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="91"/>
+        <location filename="../trayicon.cpp" line="93"/>
         <source>Unable to open file %1. Skipping.</source>
         <translation>无法打开文件 %1。已跳过该文件。</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="97"/>
+        <location filename="../trayicon.cpp" line="99"/>
         <source>%1 is not a regular file. Skipping.</source>
         <translation>%1 不是一个普通文件。已跳过该文件。</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="105"/>
+        <location filename="../trayicon.cpp" line="107"/>
         <source>No file to be sent.</source>
         <translation>无文件可发送。</translation>
     </message>

@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
     a.setQuitOnLastWindowClosed(false);
 
     QTranslator appTranslator;
-    appTranslator.load(QLocale(), a.applicationName(), ".", ":/locales");
+    appTranslator.load(a.applicationName() + '.' + QLocale::system().name(), ":/locales", "", ".qm");
     a.installTranslator(&appTranslator);
 
     try {

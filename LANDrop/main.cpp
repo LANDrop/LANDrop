@@ -30,6 +30,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <stdexcept>
+
 #include <QApplication>
 #include <QMessageBox>
 #include <QTranslator>

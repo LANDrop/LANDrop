@@ -1,0 +1,102 @@
+name: Package
+
+on: [push, pull_request]
+
+jobs:
+  build_linux:
+    name: Linux Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+
+      - name: Install libsodium
+        run: sudo apt install libsodium-dev
+
+      - name: Build
+        working-directory: ./LANDrop
+        run: qmake && make -j$(nproc)
+
+  package_windows:
+    name: Windows Package
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+
+      - name: Install libsodium
+        shell: bash
+        run: |
+          curl -LO https://download.libsodium.org/libsodium/releases/libsodium-1.0.18-stable-msvc.zip
+          unzip libsodium-1.0.18-stable-msvc.zip
+
+      - name: Configure
+        shell: bash
+        working-directory: ./LANDrop
+        run: |
+          echo "INCLUDEPATH += ../libsodium/include" >> LANDrop.pro
+          echo "LIBS += -L../libsodium/x64/Release/v142/dynamic -llibsodium" >> LANDrop.pro
+
+      - name: Build
+        shell: cmd
+        working-directory: ./LANDrop
+        run: |
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+          qmake -tp vc
+          msbuild -m -p:Configuration=Release .
+
+      - name: Package
+        shell: bash
+        working-directory: ./LANDrop
+        run: |
+          mkdir LANDrop
+          cd LANDrop
+          mv ../release/LANDrop.exe .
+          windeployqt LANDrop.exe
+          cp ../../libsodium/x64/Release/v142/dynamic/libsodium.dll .
+          curl -LO https://aka.ms/vs/16/release/vc_redist.x64.exe
+
+      - name: Zip
+        working-directory: ./LANDrop
+        run: Compress-Archive LANDrop LANDrop-win.zip
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: Windows-Build
+          path: LANDrop/LANDrop-win.zip
+
+  package_macos:
+    name: macOS Package
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+
+      - name: Install libsodium
+        run: brew install libsodium
+
+      - name: Build
+        working-directory: ./LANDrop
+        run: qmake && make -j$(nproc)
+
+      - name: Package
+        working-directory: ./LANDrop
+        run: |
+          macdeployqt LANDrop.app
+          zip -r9 LANDrop-macos.zip LANDrop.app
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: macOS-Build
+          path: LANDrop/LANDrop-macos.zip

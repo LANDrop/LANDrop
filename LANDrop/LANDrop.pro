@@ -43,7 +43,9 @@ TRANSLATIONS += \
 RC_ICONS = icons/app.ico
 ICON = icons/app.icns
 
-INCLUDEPATH += /usr/local/include
-LIBS += -L/usr/local/lib -lsodium
+unix {
+    INCLUDEPATH += /usr/local/include
+    LIBS += -L/usr/local/lib -lsodium
+}
 
 QMAKE_INFO_PLIST = Info.plist

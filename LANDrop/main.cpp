@@ -1,7 +1,7 @@
 /*
  * BSD 3-Clause License
  *
- * Copyright (c) 2021, yvbbrjdr
+ * Copyright (c) 2021, LANDrop
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -40,8 +40,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    a.setOrganizationName("yvbbrjdr");
-    a.setOrganizationDomain("yvb.moe");
+    a.setOrganizationName("LANDrop");
+    a.setOrganizationDomain("landrop.github.io");
     a.setApplicationName("LANDrop");
     a.setApplicationVersion("0.1.0-beta1");
 

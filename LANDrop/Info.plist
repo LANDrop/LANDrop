@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>${ASSETCATALOG_COMPILER_APPICON_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>moe.yvb.LANDrop</string>
+	<string>io.github.LANDrop.LANDrop</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>

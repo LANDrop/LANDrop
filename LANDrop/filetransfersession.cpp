@@ -211,6 +211,10 @@ void FileTransferSession::createNextFile()
         transferQ.pop_front();
     }
     if (transferQ.empty()) {
+        if (writingFile) {
+            writingFile->deleteLater();
+            writingFile = nullptr;
+        }
         state = FINISHED;
         QDesktopServices::openUrl(QUrl::fromLocalFile(downloadPath));
         emit printMessage(tr("Done!"));

@@ -31,12 +31,14 @@
  */
 
 #include <QApplication>
+#include <QDesktopServices>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QIcon>
 #include <QTimer>
 
 #include "sendtodialog.h"
+#include "settings.h"
 #include "trayicon.h"
 
 TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
@@ -45,6 +47,7 @@ TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
     if (QSysInfo::productType() == "osx")
         appIcon.setIsMask(true);
     QIcon sendIcon(":/icons/send.png");
+    QIcon openDownloadFolderIcon(":/icons/openDownloadFolder.png");
     QIcon settingsIcon(":/icons/settings.png");
     QIcon aboutIcon(":/icons/about.png");
     QIcon exitIcon(":/icons/exit.png");
@@ -56,6 +59,8 @@ TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
     menu.addSeparator();
     action = menu.addAction(sendIcon, tr("Send File(s)..."));
     connect(action, &QAction::triggered, this, &TrayIcon::sendActionTriggered);
+    action = menu.addAction(openDownloadFolderIcon, tr("Open Download Folder"));
+    connect(action, &QAction::triggered, this, &TrayIcon::openDownloadFolderActionTriggered);
     action = menu.addAction(settingsIcon, tr("Settings..."));
     connect(action, &QAction::triggered, &settingsDialog, &SettingsDialog::show);
     menu.addSeparator();
@@ -111,6 +116,13 @@ void TrayIcon::sendActionTriggered()
     SendToDialog *d = new SendToDialog(nullptr, files, discoveryService);
     d->setAttribute(Qt::WA_DeleteOnClose);
     d->show();
+}
+
+void TrayIcon::openDownloadFolderActionTriggered()
+{
+    QString downloadPath = Settings::downloadPath();
+    QDir().mkpath(downloadPath);
+    QDesktopServices::openUrl(QUrl::fromLocalFile(downloadPath));
 }
 
 void TrayIcon::exitActionTriggered()

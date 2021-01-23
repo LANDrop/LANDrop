@@ -52,6 +52,7 @@ private:
     DiscoveryService discoveryService;
 private slots:
     void sendActionTriggered();
+    void openDownloadFolderActionTriggered();
     void exitActionTriggered();
     void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
 };

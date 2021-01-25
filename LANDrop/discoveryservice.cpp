@@ -67,6 +67,7 @@ void DiscoveryService::sendInfo(const QHostAddress &addr, quint16 port)
     QJsonObject obj;
     obj.insert("request", false);
     obj.insert("machine_name", Settings::machineName());
+    obj.insert("machine_type", QSysInfo::productType());
     obj.insert("port", serverPort);
     socket.writeDatagram(QJsonDocument(obj).toJson(QJsonDocument::Compact), addr, port);
 }

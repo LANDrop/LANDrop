@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     a.setOrganizationName("LANDrop");
     a.setOrganizationDomain("landrop.github.io");
     a.setApplicationName("LANDrop");
-    a.setApplicationVersion("0.1.0-beta1");
+    a.setApplicationVersion("0.1.0-beta2");
 
     a.setQuitOnLastWindowClosed(false);
 

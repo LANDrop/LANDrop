@@ -44,14 +44,17 @@
 TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
 {
     QIcon appIcon(":/icons/app.png");
-    if (QSysInfo::productType() == "osx")
-        appIcon.setIsMask(true);
+    QIcon appMaskIcon(":/icons/app_mask.png");
+    appMaskIcon.setIsMask(true);
     QIcon sendIcon(":/icons/send.png");
     QIcon openDownloadFolderIcon(":/icons/openDownloadFolder.png");
     QIcon settingsIcon(":/icons/settings.png");
     QIcon aboutIcon(":/icons/about.png");
     QIcon exitIcon(":/icons/exit.png");
-    setIcon(appIcon);
+    if (QSysInfo::productType() == "osx")
+        setIcon(appMaskIcon);
+    else
+        setIcon(appIcon);
 
     QAction *action, *addrPortAction;
     addrPortAction = menu.addAction("");

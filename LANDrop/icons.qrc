@@ -6,5 +6,6 @@
         <file>icons/settings.png</file>
         <file>icons/app.png</file>
         <file>icons/openDownloadFolder.png</file>
+        <file>icons/app_mask.png</file>
     </qresource>
 </RCC>

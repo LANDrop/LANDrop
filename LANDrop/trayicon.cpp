@@ -47,7 +47,7 @@ TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
     QIcon appMaskIcon(":/icons/app_mask.png");
     appMaskIcon.setIsMask(true);
     QIcon sendIcon(":/icons/send.png");
-    QIcon openDownloadFolderIcon(":/icons/openDownloadFolder.png");
+    QIcon openDownloadFolderIcon(":/icons/open_download_folder.png");
     QIcon settingsIcon(":/icons/settings.png");
     QIcon aboutIcon(":/icons/about.png");
     QIcon exitIcon(":/icons/exit.png");

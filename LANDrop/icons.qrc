@@ -5,7 +5,7 @@
         <file>icons/send.png</file>
         <file>icons/settings.png</file>
         <file>icons/app.png</file>
-        <file>icons/openDownloadFolder.png</file>
         <file>icons/app_mask.png</file>
+        <file>icons/open_download_folder.png</file>
     </qresource>
 </RCC>

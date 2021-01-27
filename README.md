@@ -1,4 +1,4 @@
-<img src="LANDrop/icons/banner.png" width="500">
+<img src="LANDrop/icons/banner.png" width="300">
 
 ![Package](https://github.com/LANDrop/LANDrop/workflows/Package/badge.svg)
 

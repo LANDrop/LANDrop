@@ -1,6 +1,4 @@
-# LANDrop
-
-<img src="LANDrop/icons/app.png" width="200" height="200">
+<img src="LANDrop/icons/banner.png" width="500">
 
 ![Package](https://github.com/LANDrop/LANDrop/workflows/Package/badge.svg)
 

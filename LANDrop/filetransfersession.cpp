@@ -261,6 +261,7 @@ void FileTransferSession::socketReadyRead()
 
             QJsonObject obj;
             obj.insert("machine_name", Settings::machineName());
+            obj.insert("machine_type", QSysInfo::productType());
             obj.insert("files", jsonFiles);
             encryptAndSend(QJsonDocument(obj).toJson(QJsonDocument::Compact));
         }

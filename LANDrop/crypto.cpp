@@ -69,10 +69,13 @@ void Crypto::setRemotePublicKey(const QByteArray &remotePublicKey)
 
 QString Crypto::sessionKeyDigest()
 {
-    quint64 hash;
-    crypto_generichash(reinterpret_cast<unsigned char *>(&hash), sizeof(hash),
+    QByteArray h(crypto_generichash_BYTES_MIN, 0);
+    crypto_generichash(reinterpret_cast<unsigned char *>(h.data()), h.size(),
                        reinterpret_cast<const unsigned char *>(sessionKey.data()), sessionKey.size(),
                        nullptr, 0);
+    quint64 hash = 0;
+    for (int i = 0; i < 8; ++i)
+        hash |= h[i] << (i * 8);
     return QString("%1").arg(hash % 1000000, 6, 10, QLatin1Char('0'));
 }
 

@@ -44,7 +44,7 @@ public slots:
     void refresh();
 private:
     enum {
-        DISCOVERY_PORT = 7638
+        DISCOVERY_PORT = 52637
     };
     QUdpSocket socket;
     quint16 serverPort;

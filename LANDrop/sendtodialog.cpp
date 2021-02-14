@@ -66,11 +66,12 @@ void SendToDialog::newHost(const QString &machineName, const QHostAddress &addr,
 {
     QStringList l = hostsStringListModel.stringList();
     for (int i = 0; i < endpoints.size(); ++i) {
-        if (endpoints[i].addr.isEqual(addr) && endpoints[i].port == port) {
+        if (endpoints[i].addr.isEqual(addr)) {
             if (l.at(i) != machineName) {
                 l.replace(i, machineName);
                 hostsStringListModel.setStringList(l);
             }
+            endpoints[i].port = port;
             return;
         }
     }

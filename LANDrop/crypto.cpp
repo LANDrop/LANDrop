@@ -75,7 +75,7 @@ QString Crypto::sessionKeyDigest()
                        nullptr, 0);
     quint64 hash = 0;
     for (int i = 0; i < 8; ++i)
-        hash |= h[i] << (i * 8);
+        hash |= static_cast<quint64>(static_cast<quint8>(h[i])) << (i * 8);
     return QString("%1").arg(hash % 1000000, 6, 10, QLatin1Char('0'));
 }
 

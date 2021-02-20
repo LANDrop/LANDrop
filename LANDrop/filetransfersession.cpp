@@ -48,6 +48,7 @@ FileTransferSession::FileTransferSession(QObject *parent, TransferDirection dir,
     totalSize(0), transferredSize(0), writingFile(nullptr), downloadPath(Settings::downloadPath())
 {
     socket->setParent(this);
+    socket->setSocketOption(QAbstractSocket::LowDelayOption, 1);
     connect(socket, &QTcpSocket::readyRead, this, &FileTransferSession::socketReadyRead);
     connect(socket, &QTcpSocket::bytesWritten, this, &FileTransferSession::socketBytesWritten);
     connect(socket,

@@ -74,17 +74,17 @@ p, li { white-space: pre-wrap; }
         <translation>无法计算会话密钥。</translation>
     </message>
     <message>
-        <location filename="../crypto.cpp" line="96"/>
+        <location filename="../crypto.cpp" line="99"/>
         <source>Cipher text too short.</source>
         <translation>密文太短。</translation>
     </message>
     <message>
-        <location filename="../crypto.cpp" line="107"/>
+        <location filename="../crypto.cpp" line="110"/>
         <source>Decryption failed.</source>
         <translation>解密失败。</translation>
     </message>
     <message>
-        <location filename="../crypto.cpp" line="116"/>
+        <location filename="../crypto.cpp" line="119"/>
         <source>Unable to initialize libsodium.</source>
         <translation>无法初始化 libsodium。</translation>
     </message>
@@ -107,24 +107,24 @@ Your machine won&apos;t be discoverable.</source>
         <translation>正在传输</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="79"/>
+        <location filename="../filetransferdialog.cpp" line="80"/>
         <source>%1 would like to share a file &quot;%2&quot; of size %3.</source>
         <translation>%1 想要分享一个大小为 %3 的文件 &quot;%2&quot;。</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="82"/>
+        <location filename="../filetransferdialog.cpp" line="83"/>
         <source>%1 would like to share %2 files of total size %3.</source>
         <translation>%1 想要分享总大小为 %3 的 %2 个文件。</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="85"/>
+        <location filename="../filetransferdialog.cpp" line="86"/>
         <source>
 Confirm that the code &quot;%1&quot; is shown on the sending device.</source>
         <translation>
 请确认发送设备上显示了验证码 &quot;%1&quot;。</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="86"/>
+        <location filename="../filetransferdialog.cpp" line="87"/>
         <source>
 Would you like to receive it?</source>
         <translation>
@@ -132,9 +132,61 @@ Would you like to receive it?</source>
     </message>
 </context>
 <context>
+    <name>FileTransferReceiver</name>
+    <message>
+        <location filename="../filetransferreceiver.cpp" line="50"/>
+        <source>Cannot create download path: </source>
+        <translation>无法创建下载路径： </translation>
+    </message>
+    <message>
+        <location filename="../filetransferreceiver.cpp" line="54"/>
+        <source>Download path is not writable: </source>
+        <translation>下载路径不可写： </translation>
+    </message>
+    <message>
+        <location filename="../filetransferreceiver.cpp" line="149"/>
+        <source>Unable to open file %1.</source>
+        <translation>无法打开文件 %1。</translation>
+    </message>
+    <message>
+        <location filename="../filetransferreceiver.cpp" line="153"/>
+        <source>Receiving file %1...</source>
+        <translation>正在接收文件 %1...</translation>
+    </message>
+    <message>
+        <location filename="../filetransferreceiver.cpp" line="165"/>
+        <source>Done!</source>
+        <translation>完成！</translation>
+    </message>
+</context>
+<context>
+    <name>FileTransferSender</name>
+    <message>
+        <location filename="../filetransfersender.cpp" line="77"/>
+        <location filename="../filetransfersender.cpp" line="84"/>
+        <source>Handshake failed.</source>
+        <translation>握手失败。</translation>
+    </message>
+    <message>
+        <location filename="../filetransfersender.cpp" line="89"/>
+        <source>The receiving device rejected your file(s).</source>
+        <translation>接收设备拒绝了你的文件。</translation>
+    </message>
+    <message>
+        <location filename="../filetransfersender.cpp" line="108"/>
+        <source>Sending file %1...</source>
+        <translation>正在发送文件 %1...</translation>
+    </message>
+    <message>
+        <location filename="../filetransfersender.cpp" line="114"/>
+        <source>Done!</source>
+        <translation>完成！</translation>
+    </message>
+</context>
+<context>
     <name>FileTransferServer</name>
     <message>
-        <location filename="../filetransferserver.cpp" line="43"/>
+        <location filename="../filetransferserver.cpp" line="44"/>
         <source>Unable to listen on a port.</source>
         <translation>无法监听任何端口。</translation>
     </message>
@@ -142,57 +194,19 @@ Would you like to receive it?</source>
 <context>
     <name>FileTransferSession</name>
     <message>
-        <location filename="../filetransfersession.cpp" line="64"/>
+        <location filename="../filetransfersession.cpp" line="52"/>
         <source>Handshaking...</source>
         <translation>正在握手...</translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="72"/>
-        <source>Cannot create download path: </source>
-        <translation>无法创建下载路径： </translation>
-    </message>
-    <message>
-        <location filename="../filetransfersession.cpp" line="76"/>
-        <source>Download path is not writable: </source>
-        <translation>下载路径不可写： </translation>
-    </message>
-    <message>
-        <location filename="../filetransfersession.cpp" line="105"/>
-        <location filename="../filetransfersession.cpp" line="115"/>
-        <location filename="../filetransfersession.cpp" line="232"/>
+        <location filename="../filetransfersession.cpp" line="78"/>
         <source>Handshake failed.</source>
         <translation>握手失败。</translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="120"/>
-        <source>The receiving device rejected your file(s).</source>
-        <translation>接收设备拒绝了你的文件。</translation>
-    </message>
-    <message>
-        <location filename="../filetransfersession.cpp" line="204"/>
-        <source>Unable to open file %1.</source>
-        <translation>无法打开文件 %1。</translation>
-    </message>
-    <message>
-        <location filename="../filetransfersession.cpp" line="208"/>
-        <source>Receiving file %1...</source>
-        <translation>正在接收文件 %1...</translation>
-    </message>
-    <message>
-        <location filename="../filetransfersession.cpp" line="220"/>
-        <location filename="../filetransfersession.cpp" line="309"/>
-        <source>Done!</source>
-        <translation>完成！</translation>
-    </message>
-    <message>
-        <location filename="../filetransfersession.cpp" line="245"/>
+        <location filename="../filetransfersession.cpp" line="89"/>
         <source>Handshaking... Code: %1</source>
         <translation>正在握手... 验证码：%1</translation>
-    </message>
-    <message>
-        <location filename="../filetransfersession.cpp" line="303"/>
-        <source>Sending file %1...</source>
-        <translation>正在发送文件 %1...</translation>
     </message>
 </context>
 <context>
@@ -226,12 +240,12 @@ Would you like to receive it?</source>
         <translation>端口</translation>
     </message>
     <message>
-        <location filename="../sendtodialog.cpp" line="99"/>
+        <location filename="../sendtodialog.cpp" line="101"/>
         <source>Invalid port. Please enter a number between 1 and 65535.</source>
         <translation>无效端口。请输入一个 1 到 65535 的数字。</translation>
     </message>
     <message>
-        <location filename="../sendtodialog.cpp" line="143"/>
+        <location filename="../sendtodialog.cpp" line="146"/>
         <source>Connection timed out</source>
         <translation>连接超时</translation>
     </message>

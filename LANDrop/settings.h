@@ -38,6 +38,8 @@ class Settings {
 public:
     static QString machineName();
     static QString downloadPath();
+    static bool discoverable();
     static void setMachineName(const QString &machineName);
     static void setDownloadPath(const QString &downloadPath);
+    static void setDiscoverable(bool discoverable);
 };

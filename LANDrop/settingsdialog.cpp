@@ -52,6 +52,7 @@ void SettingsDialog::accept()
 {
     Settings::setMachineName(ui->machineNameLineEdit->text());
     Settings::setDownloadPath(ui->downloadPathLineEdit->text());
+    Settings::setDiscoverable(ui->discoverableCheckBox->isChecked());
     done(Accepted);
 }
 
@@ -68,5 +69,6 @@ void SettingsDialog::showEvent(QShowEvent *e)
     QDialog::showEvent(e);
     ui->machineNameLineEdit->setText(Settings::machineName());
     ui->downloadPathLineEdit->setText(Settings::downloadPath());
+    ui->discoverableCheckBox->setChecked(Settings::discoverable());
     ui->machineNameLineEdit->setFocus();
 }

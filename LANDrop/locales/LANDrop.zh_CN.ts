@@ -273,7 +273,12 @@ Would you like to receive it?</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../settingsdialog.cpp" line="60"/>
+        <location filename="../settingsdialog.ui" line="57"/>
+        <source>Discoverable</source>
+        <translation>可被发现</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.cpp" line="61"/>
         <source>Select Download Path</source>
         <translation>选择下载路径</translation>
     </message>

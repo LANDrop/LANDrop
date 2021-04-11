@@ -51,6 +51,11 @@ QString Settings::downloadPath()
     return QSettings().value("downloadPath", d).toString();
 }
 
+bool Settings::discoverable()
+{
+    return QSettings().value("discoverable", true).toBool();
+}
+
 void Settings::setMachineName(const QString &machineName)
 {
     QSettings().setValue("machineName", machineName);
@@ -59,4 +64,9 @@ void Settings::setMachineName(const QString &machineName)
 void Settings::setDownloadPath(const QString &downloadPath)
 {
     QSettings().setValue("downloadPath", downloadPath);
+}
+
+void Settings::setDiscoverable(bool discoverable)
+{
+    QSettings().setValue("discoverable", discoverable);
 }

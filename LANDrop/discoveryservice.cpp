@@ -64,6 +64,8 @@ void DiscoveryService::refresh()
 
 void DiscoveryService::sendInfo(const QHostAddress &addr, quint16 port)
 {
+    if (!Settings::discoverable())
+        return;
     QJsonObject obj;
     obj.insert("request", false);
     obj.insert("machine_name", Settings::machineName());

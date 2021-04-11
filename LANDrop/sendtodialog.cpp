@@ -34,6 +34,7 @@
 #include <QPushButton>
 
 #include "filetransferdialog.h"
+#include "filetransfersender.h"
 #include "sendtodialog.h"
 #include "ui_sendtodialog.h"
 
@@ -119,7 +120,8 @@ void SendToDialog::accept()
 void SendToDialog::socketConnected()
 {
     socketTimeoutTimer.stop();
-    FileTransferDialog *d = new FileTransferDialog(nullptr, FileTransferSession::SENDING, socket, files);
+    FileTransferSender *sender = new FileTransferSender(nullptr, socket, files);
+    FileTransferDialog *d = new FileTransferDialog(nullptr, sender);
     d->setAttribute(Qt::WA_DeleteOnClose);
     d->show();
     done(Accepted);

@@ -33,7 +33,6 @@
 #pragma once
 
 #include <QObject>
-#include <QFile>
 #include <QTcpSocket>
 
 #include "crypto.h"
@@ -41,44 +40,31 @@
 class FileTransferSession : public QObject {
     Q_OBJECT
 public:
-    enum TransferDirection {
-        SENDING,
-        RECEIVING
-    };
     struct FileMetadata {
         QString filename;
         quint64 size;
     };
-    explicit FileTransferSession(QObject *parent, TransferDirection dir, QTcpSocket *socket,
-                                 const QList<QSharedPointer<QFile>> &files);
+    explicit FileTransferSession(QObject *parent, QTcpSocket *socket);
     void start();
-    void respond(bool accepted);
-private:
+    virtual void respond(bool accepted);
+protected:
     enum State {
         HANDSHAKE1,
         HANDSHAKE2,
         TRANSFERRING,
         FINISHED
     } state;
-    enum {
-        TRANSFER_QUANTA = 64000
-    };
-    TransferDirection dir;
     QTcpSocket *socket;
-    QList<QSharedPointer<QFile>> files;
     Crypto crypto;
     QByteArray readBuffer;
     QList<FileMetadata> transferQ;
     quint64 totalSize;
     quint64 transferredSize;
-    QFile *writingFile;
-    QString downloadPath;
     void encryptAndSend(const QByteArray &data);
-    void processReceivedData(const QByteArray &data);
-    void createNextFile();
+    virtual void handshake1Finished();
+    virtual void processReceivedData(const QByteArray &data) = 0;
 private slots:
     void socketReadyRead();
-    void socketBytesWritten();
     void socketErrorOccurred();
 signals:
     void printMessage(const QString &msg);

@@ -30,32 +30,24 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdexcept>
+#pragma once
 
-#include "filetransferdialog.h"
-#include "filetransferreceiver.h"
-#include "filetransferserver.h"
+#include <QFile>
 
-FileTransferServer::FileTransferServer(QObject *parent) : QObject(parent) {}
+#include "filetransfersession.h"
 
-void FileTransferServer::start()
-{
-    if (!server.listen())
-        throw std::runtime_error(tr("Unable to listen on a port.").toUtf8().toStdString());
-
-    connect(&server, &QTcpServer::newConnection, this, &FileTransferServer::serverNewConnection);
-}
-
-quint16 FileTransferServer::port()
-{
-    return server.serverPort();
-}
-
-void FileTransferServer::serverNewConnection()
-{
-    while (server.hasPendingConnections()) {
-        FileTransferReceiver *receiver = new FileTransferReceiver(nullptr, server.nextPendingConnection());
-        FileTransferDialog *d = new FileTransferDialog(nullptr, receiver);
-        d->setAttribute(Qt::WA_DeleteOnClose);
-    }
-}
+class FileTransferSender : public FileTransferSession {
+    Q_OBJECT
+public:
+    FileTransferSender(QObject *parent, QTcpSocket *socket, const QList<QSharedPointer<QFile>> &files);
+private:
+    enum {
+        TRANSFER_QUANTA = 64000
+    };
+    QList<QSharedPointer<QFile>> files;
+protected:
+    void handshake1Finished();
+    void processReceivedData(const QByteArray &data);
+private slots:
+    void socketBytesWritten();
+};

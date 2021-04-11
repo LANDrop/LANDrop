@@ -45,12 +45,11 @@ namespace Ui {
 class FileTransferDialog : public QDialog {
     Q_OBJECT
 public:
-    explicit FileTransferDialog(QWidget *parent, FileTransferSession::TransferDirection dir, QTcpSocket *socket,
-                                const QList<QSharedPointer<QFile>> &files = QList<QSharedPointer<QFile>>());
+    explicit FileTransferDialog(QWidget *parent, FileTransferSession *session);
     ~FileTransferDialog();
 private:
     Ui::FileTransferDialog *ui;
-    FileTransferSession session;
+    FileTransferSession *session;
 private slots:
     void sessionUpdateProgress(double progress);
     void sessionErrorOccurred(const QString &msg);

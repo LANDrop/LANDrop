@@ -35,19 +35,19 @@
 #include "filetransferdialog.h"
 #include "ui_filetransferdialog.h"
 
-FileTransferDialog::FileTransferDialog(QWidget *parent, FileTransferSession::TransferDirection dir,
-                                       QTcpSocket *socket, const QList<QSharedPointer<QFile>> &files) :
-    QDialog(parent), ui(new Ui::FileTransferDialog), session(nullptr, dir, socket, files)
+FileTransferDialog::FileTransferDialog(QWidget *parent, FileTransferSession *session) :
+    QDialog(parent), ui(new Ui::FileTransferDialog), session(session)
 {
     ui->setupUi(this);
     setWindowFlag(Qt::WindowStaysOnTopHint);
 
-    connect(&session, &FileTransferSession::printMessage, ui->statusLabel, &QLabel::setText);
-    connect(&session, &FileTransferSession::updateProgress, this, &FileTransferDialog::sessionUpdateProgress);
-    connect(&session, &FileTransferSession::errorOccurred, this, &FileTransferDialog::sessionErrorOccurred);
-    connect(&session, &FileTransferSession::fileMetadataReady, this, &FileTransferDialog::sessionFileMetadataReady);
-    connect(&session, &FileTransferSession::ended, this, &FileTransferDialog::accept);
-    session.start();
+    session->setParent(this);
+    connect(session, &FileTransferSession::printMessage, ui->statusLabel, &QLabel::setText);
+    connect(session, &FileTransferSession::updateProgress, this, &FileTransferDialog::sessionUpdateProgress);
+    connect(session, &FileTransferSession::errorOccurred, this, &FileTransferDialog::sessionErrorOccurred);
+    connect(session, &FileTransferSession::fileMetadataReady, this, &FileTransferDialog::sessionFileMetadataReady);
+    connect(session, &FileTransferSession::ended, this, &FileTransferDialog::accept);
+    session->start();
 }
 
 FileTransferDialog::~FileTransferDialog()
@@ -62,7 +62,8 @@ void FileTransferDialog::sessionUpdateProgress(double progress)
 
 void FileTransferDialog::sessionErrorOccurred(const QString &msg)
 {
-    QMessageBox::critical(this, QApplication::applicationName(), msg);
+    if (isVisible())
+        QMessageBox::critical(this, QApplication::applicationName(), msg);
     done(Rejected);
 }
 
@@ -88,7 +89,7 @@ void FileTransferDialog::sessionFileMetadataReady(const QList<FileTransferSessio
     bool result = QMessageBox::question(this, QApplication::applicationName(), msg,
                                         QMessageBox::Yes | QMessageBox::No,
                                         QMessageBox::Yes) == QMessageBox::Yes;
-    session.respond(result);
+    session->respond(result);
     if (!result)
         hide();
 }

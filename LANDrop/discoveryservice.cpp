@@ -52,14 +52,19 @@ void DiscoveryService::start(quint16 serverPort)
                              tr("Unable to bind to port %1.\nYour machine won't be discoverable.")
                              .arg(DISCOVERY_PORT));
     }
-    sendInfo(QHostAddress::Broadcast, DISCOVERY_PORT);
+    foreach (const QHostAddress &addr, broadcastAddresses()) {
+        sendInfo(addr, DISCOVERY_PORT);
+    }
 }
 
 void DiscoveryService::refresh()
 {
     QJsonObject obj;
     obj.insert("request", true);
-    socket.writeDatagram(QJsonDocument(obj).toJson(QJsonDocument::Compact), QHostAddress::Broadcast, DISCOVERY_PORT);
+    QByteArray json = QJsonDocument(obj).toJson(QJsonDocument::Compact);
+    foreach (const QHostAddress &addr, broadcastAddresses()) {
+        socket.writeDatagram(json, addr, DISCOVERY_PORT);
+    }
 }
 
 void DiscoveryService::sendInfo(const QHostAddress &addr, quint16 port)
@@ -81,6 +86,20 @@ bool DiscoveryService::isLocalAddress(const QHostAddress &addr)
              return true;
     }
     return false;
+}
+
+QList<QHostAddress> DiscoveryService::broadcastAddresses()
+{
+    QList<QHostAddress> ret;
+    ret.append(QHostAddress::Broadcast);
+    foreach (const QNetworkInterface &i, QNetworkInterface::allInterfaces()) {
+        if (i.flags() & QNetworkInterface::CanBroadcast) {
+            foreach (const QNetworkAddressEntry &e, i.addressEntries()) {
+                ret.append(e.broadcast());
+            }
+        }
+    }
+    return ret;
 }
 
 void DiscoveryService::socketReadyRead()

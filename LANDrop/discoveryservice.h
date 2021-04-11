@@ -50,6 +50,7 @@ private:
     quint16 serverPort;
     void sendInfo(const QHostAddress &addr, quint16 port);
     bool isLocalAddress(const QHostAddress &addr);
+    QList<QHostAddress> broadcastAddresses();
 private slots:
     void socketReadyRead();
 signals:

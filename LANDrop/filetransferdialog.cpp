@@ -30,16 +30,22 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <QMessageBox>
+#include <QAbstractButton>
 
 #include "filetransferdialog.h"
 #include "ui_filetransferdialog.h"
 
 FileTransferDialog::FileTransferDialog(QWidget *parent, FileTransferSession *session) :
-    QDialog(parent), ui(new Ui::FileTransferDialog), session(session)
+    QDialog(parent), ui(new Ui::FileTransferDialog), session(session), errored(false), questionBox(this)
 {
     ui->setupUi(this);
     setWindowFlag(Qt::WindowStaysOnTopHint);
+
+    questionBox.setIcon(QMessageBox::Question);
+    questionBox.setWindowTitle(QApplication::applicationName());
+    questionBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    questionBox.setDefaultButton(QMessageBox::Yes);
+    connect(&questionBox, &QMessageBox::finished, this, &FileTransferDialog::respond);
 
     session->setParent(this);
     connect(session, &FileTransferSession::printMessage, ui->statusLabel, &QLabel::setText);
@@ -55,6 +61,14 @@ FileTransferDialog::~FileTransferDialog()
     delete ui;
 }
 
+void FileTransferDialog::respond(int result)
+{
+    bool response = result == QMessageBox::Yes;
+    session->respond(response);
+    if (!response)
+        hide();
+}
+
 void FileTransferDialog::sessionUpdateProgress(double progress)
 {
     ui->progressBar->setValue(ui->progressBar->maximum() * progress);
@@ -62,6 +76,9 @@ void FileTransferDialog::sessionUpdateProgress(double progress)
 
 void FileTransferDialog::sessionErrorOccurred(const QString &msg)
 {
+    if (errored)
+        return;
+    errored = true;
     if (isVisible())
         QMessageBox::critical(this, QApplication::applicationName(), msg);
     done(Rejected);
@@ -86,10 +103,6 @@ void FileTransferDialog::sessionFileMetadataReady(const QList<FileTransferSessio
     msg += tr("\nConfirm that the code \"%1\" is shown on the sending device.").arg(sessionKeyDigest);
     msg += tr("\nWould you like to receive it?");
 
-    bool result = QMessageBox::question(this, QApplication::applicationName(), msg,
-                                        QMessageBox::Yes | QMessageBox::No,
-                                        QMessageBox::Yes) == QMessageBox::Yes;
-    session->respond(result);
-    if (!result)
-        hide();
+    questionBox.setText(msg);
+    questionBox.show();
 }

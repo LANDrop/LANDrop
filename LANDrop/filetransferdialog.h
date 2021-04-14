@@ -34,6 +34,7 @@
 
 #include <QDialog>
 #include <QFile>
+#include <QMessageBox>
 #include <QTcpSocket>
 
 #include "filetransfersession.h"
@@ -50,7 +51,10 @@ public:
 private:
     Ui::FileTransferDialog *ui;
     FileTransferSession *session;
+    bool errored;
+    QMessageBox questionBox;
 private slots:
+    void respond(int result);
     void sessionUpdateProgress(double progress);
     void sessionErrorOccurred(const QString &msg);
     void sessionFileMetadataReady(const QList<FileTransferSession::FileMetadata> &metadata, quint64 totalSize,

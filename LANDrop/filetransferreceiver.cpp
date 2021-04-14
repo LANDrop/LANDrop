@@ -61,6 +61,9 @@ void FileTransferReceiver::respond(bool accepted)
     QJsonObject obj;
     obj.insert("response", static_cast<int>(accepted));
     encryptAndSend(QJsonDocument(obj).toJson(QJsonDocument::Compact));
+
+    if (!accepted)
+        connect(socket, &QTcpSocket::bytesWritten, this, &FileTransferReceiver::ended);
 }
 
 void FileTransferReceiver::processReceivedData(const QByteArray &data)

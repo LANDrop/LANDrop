@@ -107,24 +107,24 @@ Your machine won&apos;t be discoverable.</source>
         <translation>正在传输</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="80"/>
+        <location filename="../filetransferdialog.cpp" line="97"/>
         <source>%1 would like to share a file &quot;%2&quot; of size %3.</source>
         <translation>%1 想要分享一个大小为 %3 的文件 &quot;%2&quot;。</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="83"/>
+        <location filename="../filetransferdialog.cpp" line="100"/>
         <source>%1 would like to share %2 files of total size %3.</source>
         <translation>%1 想要分享总大小为 %3 的 %2 个文件。</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="86"/>
+        <location filename="../filetransferdialog.cpp" line="103"/>
         <source>
 Confirm that the code &quot;%1&quot; is shown on the sending device.</source>
         <translation>
 请确认发送设备上显示了验证码 &quot;%1&quot;。</translation>
     </message>
     <message>
-        <location filename="../filetransferdialog.cpp" line="87"/>
+        <location filename="../filetransferdialog.cpp" line="104"/>
         <source>
 Would you like to receive it?</source>
         <translation>
@@ -144,17 +144,17 @@ Would you like to receive it?</source>
         <translation>下载路径不可写： </translation>
     </message>
     <message>
-        <location filename="../filetransferreceiver.cpp" line="149"/>
+        <location filename="../filetransferreceiver.cpp" line="152"/>
         <source>Unable to open file %1.</source>
         <translation>无法打开文件 %1。</translation>
     </message>
     <message>
-        <location filename="../filetransferreceiver.cpp" line="153"/>
+        <location filename="../filetransferreceiver.cpp" line="156"/>
         <source>Receiving file %1...</source>
         <translation>正在接收文件 %1...</translation>
     </message>
     <message>
-        <location filename="../filetransferreceiver.cpp" line="165"/>
+        <location filename="../filetransferreceiver.cpp" line="168"/>
         <source>Done!</source>
         <translation>完成！</translation>
     </message>

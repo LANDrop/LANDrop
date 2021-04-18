@@ -71,6 +71,6 @@ signals:
     void updateProgress(double progress);
     void errorOccurred(const QString &msg);
     void fileMetadataReady(const QList<FileTransferSession::FileMetadata> &metadata, quint64 totalSize,
-                           const QString &machineName, const QString &sessionKeyDigest);
+                           const QString &deviceName, const QString &sessionKeyDigest);
     void ended();
 };

@@ -63,13 +63,13 @@ SendToDialog::~SendToDialog()
     delete ui;
 }
 
-void SendToDialog::newHost(const QString &machineName, const QHostAddress &addr, quint16 port)
+void SendToDialog::newHost(const QString &deviceName, const QHostAddress &addr, quint16 port)
 {
     QStringList l = hostsStringListModel.stringList();
     for (int i = 0; i < endpoints.size(); ++i) {
         if (endpoints[i].addr.isEqual(addr)) {
-            if (l.at(i) != machineName) {
-                l.replace(i, machineName);
+            if (l.at(i) != deviceName) {
+                l.replace(i, deviceName);
                 hostsStringListModel.setStringList(l);
             }
             endpoints[i].port = port;
@@ -77,7 +77,7 @@ void SendToDialog::newHost(const QString &machineName, const QHostAddress &addr,
         }
     }
     endpoints.append({addr, port});
-    l.append(machineName);
+    l.append(deviceName);
     hostsStringListModel.setStringList(l);
 }
 

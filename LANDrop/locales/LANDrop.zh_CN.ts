@@ -94,9 +94,9 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../discoveryservice.cpp" line="52"/>
         <source>Unable to bind to port %1.
-Your machine won&apos;t be discoverable.</source>
+Your device won&apos;t be discoverable.</source>
         <translation>无法绑定端口 %1。
-你的机器将无法被发现。</translation>
+你的设备将无法被发现。</translation>
     </message>
 </context>
 <context>
@@ -259,8 +259,8 @@ Would you like to receive it?</source>
     </message>
     <message>
         <location filename="../settingsdialog.ui" line="22"/>
-        <source>Machine Name</source>
-        <translation>机器名</translation>
+        <source>Device Name</source>
+        <translation>设备名</translation>
     </message>
     <message>
         <location filename="../settingsdialog.ui" line="36"/>

@@ -63,8 +63,8 @@ void FileTransferSender::handshake1Finished()
     }
 
     QJsonObject obj;
-    obj.insert("machine_name", Settings::machineName());
-    obj.insert("machine_type", QSysInfo::productType());
+    obj.insert("device_name", Settings::deviceName());
+    obj.insert("device_type", QSysInfo::productType());
     obj.insert("files", jsonFiles);
     encryptAndSend(QJsonDocument(obj).toJson(QJsonDocument::Compact));
 }

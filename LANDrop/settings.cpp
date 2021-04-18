@@ -38,10 +38,10 @@
 #include <QSettings>
 #include <QStandardPaths>
 
-QString Settings::machineName()
+QString Settings::deviceName()
 {
     QString d = QHostInfo::localHostName();
-    return QSettings().value("machineName", d).toString();
+    return QSettings().value("deviceName", d).toString();
 }
 
 QString Settings::downloadPath()
@@ -56,9 +56,9 @@ bool Settings::discoverable()
     return QSettings().value("discoverable", true).toBool();
 }
 
-void Settings::setMachineName(const QString &machineName)
+void Settings::setDeviceName(const QString &deviceName)
 {
-    QSettings().setValue("machineName", machineName);
+    QSettings().setValue("deviceName", deviceName);
 }
 
 void Settings::setDownloadPath(const QString &downloadPath)

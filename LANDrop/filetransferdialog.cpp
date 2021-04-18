@@ -86,7 +86,7 @@ void FileTransferDialog::sessionErrorOccurred(const QString &msg)
 
 void FileTransferDialog::sessionFileMetadataReady(const QList<FileTransferSession::FileMetadata> &metadata,
                                                   quint64 totalSize,
-                                                  const QString &machineName,
+                                                  const QString &deviceName,
                                                   const QString &sessionKeyDigest)
 {
     show();
@@ -95,10 +95,10 @@ void FileTransferDialog::sessionFileMetadataReady(const QList<FileTransferSessio
     QString msg;
     if (metadata.size() == 1) {
         msg = tr("%1 would like to share a file \"%2\" of size %3.")
-                .arg(machineName, metadata.first().filename, totalSizeStr);
+                .arg(deviceName, metadata.first().filename, totalSizeStr);
     } else {
         msg = tr("%1 would like to share %2 files of total size %3.")
-                .arg(machineName).arg(metadata.size()).arg(totalSizeStr);
+                .arg(deviceName).arg(metadata.size()).arg(totalSizeStr);
     }
     msg += tr("\nConfirm that the code \"%1\" is shown on the sending device.").arg(sessionKeyDigest);
     msg += tr("\nWould you like to receive it?");

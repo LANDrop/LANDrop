@@ -76,8 +76,8 @@ void FileTransferReceiver::processReceivedData(const QByteArray &data)
         }
 
         QJsonObject obj = json.object();
-        QJsonValue machineName = obj.value("machine_name");
-        if (!machineName.isString()) {
+        QJsonValue deviceName = obj.value("device_name");
+        if (!deviceName.isString()) {
             emit ended();
             return;
         }
@@ -118,7 +118,7 @@ void FileTransferReceiver::processReceivedData(const QByteArray &data)
             transferQ.append({filename.toString(), sizeInt});
         }
 
-        emit fileMetadataReady(transferQ, totalSize, machineName.toString(),
+        emit fileMetadataReady(transferQ, totalSize, deviceName.toString(),
                                crypto.sessionKeyDigest());
     } else if (state == TRANSFERRING) {
         transferredSize += data.size();

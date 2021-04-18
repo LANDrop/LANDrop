@@ -63,7 +63,7 @@ private:
     QTcpSocket *socket;
     QTimer socketTimeoutTimer;
 private slots:
-    void newHost(const QString &machineName, const QHostAddress &addr, quint16 port);
+    void newHost(const QString &deviceName, const QHostAddress &addr, quint16 port);
     void hostsListViewClicked(const QModelIndex &index);
     void accept();
     void socketConnected();

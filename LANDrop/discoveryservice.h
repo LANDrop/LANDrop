@@ -54,5 +54,5 @@ private:
 private slots:
     void socketReadyRead();
 signals:
-    void newHost(const QString &machineName, const QHostAddress &addr, quint16 port);
+    void newHost(const QString &deviceName, const QHostAddress &addr, quint16 port);
 };

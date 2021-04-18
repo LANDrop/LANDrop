@@ -49,7 +49,7 @@ void DiscoveryService::start(quint16 serverPort)
     this->serverPort = serverPort;
     if (!socket.bind(QHostAddress::Any, DISCOVERY_PORT)) {
         QMessageBox::warning(nullptr, QApplication::applicationName(),
-                             tr("Unable to bind to port %1.\nYour machine won't be discoverable.")
+                             tr("Unable to bind to port %1.\nYour device won't be discoverable.")
                              .arg(DISCOVERY_PORT));
     }
     foreach (const QHostAddress &addr, broadcastAddresses()) {
@@ -73,8 +73,8 @@ void DiscoveryService::sendInfo(const QHostAddress &addr, quint16 port)
         return;
     QJsonObject obj;
     obj.insert("request", false);
-    obj.insert("machine_name", Settings::machineName());
-    obj.insert("machine_type", QSysInfo::productType());
+    obj.insert("device_name", Settings::deviceName());
+    obj.insert("device_type", QSysInfo::productType());
     obj.insert("port", serverPort);
     socket.writeDatagram(QJsonDocument(obj).toJson(QJsonDocument::Compact), addr, port);
 }
@@ -125,12 +125,12 @@ void DiscoveryService::socketReadyRead()
             sendInfo(addr, port);
             continue;
         }
-        QJsonValue machineName = obj.value("machine_name");
+        QJsonValue deviceName = obj.value("device_name");
         QJsonValue remotePort = obj.value("port");
-        if (!machineName.isString() || !remotePort.isDouble())
+        if (!deviceName.isString() || !remotePort.isDouble())
             continue;
-        QString machineNameStr = machineName.toString();
+        QString deviceNameStr = deviceName.toString();
         quint16 remotePortInt = remotePort.toInt();
-        emit newHost(machineNameStr, addr, remotePortInt);
+        emit newHost(deviceNameStr, addr, remotePortInt);
     }
 }

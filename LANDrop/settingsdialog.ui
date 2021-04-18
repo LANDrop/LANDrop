@@ -17,14 +17,14 @@
    <item>
     <layout class="QFormLayout" name="formLayout">
      <item row="0" column="0">
-      <widget class="QLabel" name="machineNameLabel">
+      <widget class="QLabel" name="deviceNameLabel">
        <property name="text">
-        <string>Machine Name</string>
+        <string>Device Name</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="machineNameLineEdit">
+      <widget class="QLineEdit" name="deviceNameLineEdit">
        <property name="maxLength">
         <number>64</number>
        </property>

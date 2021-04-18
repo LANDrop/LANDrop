@@ -45,6 +45,10 @@ FileTransferReceiver::FileTransferReceiver(QObject *parent, QTcpSocket *socket) 
 
 void FileTransferReceiver::respond(bool accepted)
 {
+    QJsonObject obj;
+    obj.insert("response", static_cast<int>(accepted));
+    encryptAndSend(QJsonDocument(obj).toJson(QJsonDocument::Compact));
+
     if (accepted) {
         if (!QDir().mkpath(downloadPath)) {
             emit errorOccurred(tr("Cannot create download path: ") + downloadPath);
@@ -56,14 +60,9 @@ void FileTransferReceiver::respond(bool accepted)
         }
         state = TRANSFERRING;
         createNextFile();
-    }
-
-    QJsonObject obj;
-    obj.insert("response", static_cast<int>(accepted));
-    encryptAndSend(QJsonDocument(obj).toJson(QJsonDocument::Compact));
-
-    if (!accepted)
+    } else {
         connect(socket, &QTcpSocket::bytesWritten, this, &FileTransferReceiver::ended);
+    }
 }
 
 void FileTransferReceiver::processReceivedData(const QByteArray &data)

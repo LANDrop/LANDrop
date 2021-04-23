@@ -66,6 +66,17 @@ SendToDialog::~SendToDialog()
 void SendToDialog::newHost(const QString &deviceName, const QHostAddress &addr, quint16 port)
 {
     QStringList l = hostsStringListModel.stringList();
+    if (port == 0) {
+        for (int i = 0; i < endpoints.size(); ++i) {
+            if (endpoints[i].addr.isEqual(addr)) {
+                endpoints.removeAt(i);
+                l.removeAt(i);
+                hostsStringListModel.setStringList(l);
+                return;
+            }
+        }
+        return;
+    }
     for (int i = 0; i < endpoints.size(); ++i) {
         if (endpoints[i].addr.isEqual(addr)) {
             if (l.at(i) != deviceName) {

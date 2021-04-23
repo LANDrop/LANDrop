@@ -69,13 +69,11 @@ void DiscoveryService::refresh()
 
 void DiscoveryService::sendInfo(const QHostAddress &addr, quint16 port)
 {
-    if (!Settings::discoverable())
-        return;
     QJsonObject obj;
     obj.insert("request", false);
     obj.insert("device_name", Settings::deviceName());
     obj.insert("device_type", QSysInfo::productType());
-    obj.insert("port", serverPort);
+    obj.insert("port", Settings::discoverable() ? serverPort : 0);
     socket.writeDatagram(QJsonDocument(obj).toJson(QJsonDocument::Compact), addr, port);
 }
 

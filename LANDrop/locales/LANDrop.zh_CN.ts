@@ -240,12 +240,12 @@ Would you like to receive it?</source>
         <translation>端口</translation>
     </message>
     <message>
-        <location filename="../sendtodialog.cpp" line="101"/>
+        <location filename="../sendtodialog.cpp" line="112"/>
         <source>Invalid port. Please enter a number between 1 and 65535.</source>
         <translation>无效端口。请输入一个 1 到 65535 的数字。</translation>
     </message>
     <message>
-        <location filename="../sendtodialog.cpp" line="146"/>
+        <location filename="../sendtodialog.cpp" line="157"/>
         <source>Connection timed out</source>
         <translation>连接超时</translation>
     </message>

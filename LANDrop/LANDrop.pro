@@ -12,6 +12,7 @@ SOURCES += \
     filetransferserver.cpp \
     filetransfersession.cpp \
     main.cpp \
+    selectfilesdialog.cpp \
     sendtodialog.cpp \
     settings.cpp \
     settingsdialog.cpp \
@@ -26,6 +27,7 @@ HEADERS += \
     filetransfersender.h \
     filetransferserver.h \
     filetransfersession.h \
+    selectfilesdialog.h \
     sendtodialog.h \
     settings.h \
     settingsdialog.h \
@@ -34,6 +36,7 @@ HEADERS += \
 FORMS += \
     aboutdialog.ui \
     filetransferdialog.ui \
+    selectfilesdialog.ui \
     sendtodialog.ui \
     settingsdialog.ui
 

@@ -218,6 +218,45 @@ Would you like to receive it?</source>
     </message>
 </context>
 <context>
+    <name>SelectFilesDialog</name>
+    <message>
+        <location filename="../selectfilesdialog.ui" line="17"/>
+        <location filename="../selectfilesdialog.cpp" line="92"/>
+        <source>Select File(s) to be Sent</source>
+        <translation>请选择想要发送的文件</translation>
+    </message>
+    <message>
+        <location filename="../selectfilesdialog.ui" line="23"/>
+        <source>You can drag files to this window:</source>
+        <translation>你可以拖拽文件至此窗口：</translation>
+    </message>
+    <message>
+        <location filename="../selectfilesdialog.ui" line="42"/>
+        <source>Add...</source>
+        <translation>添加...</translation>
+    </message>
+    <message>
+        <location filename="../selectfilesdialog.ui" line="49"/>
+        <source>Remove</source>
+        <translation>移除</translation>
+    </message>
+    <message>
+        <location filename="../selectfilesdialog.cpp" line="68"/>
+        <source>Unable to open file %1. Skipping.</source>
+        <translation>无法打开文件 %1。已跳过该文件。</translation>
+    </message>
+    <message>
+        <location filename="../selectfilesdialog.cpp" line="74"/>
+        <source>%1 is not a regular file. Skipping.</source>
+        <translation>%1 不是一个普通文件。已跳过该文件。</translation>
+    </message>
+    <message>
+        <location filename="../selectfilesdialog.cpp" line="119"/>
+        <source>No file to be sent.</source>
+        <translation>无文件可发送。</translation>
+    </message>
+</context>
+<context>
     <name>SendToDialog</name>
     <message>
         <location filename="../sendtodialog.ui" line="14"/>
@@ -240,12 +279,12 @@ Would you like to receive it?</source>
         <translation>端口</translation>
     </message>
     <message>
-        <location filename="../sendtodialog.cpp" line="112"/>
+        <location filename="../sendtodialog.cpp" line="111"/>
         <source>Invalid port. Please enter a number between 1 and 65535.</source>
         <translation>无效端口。请输入一个 1 到 65535 的数字。</translation>
     </message>
     <message>
-        <location filename="../sendtodialog.cpp" line="157"/>
+        <location filename="../sendtodialog.cpp" line="156"/>
         <source>Connection timed out</source>
         <translation>连接超时</translation>
     </message>
@@ -319,26 +358,6 @@ Would you like to receive it?</source>
         <location filename="../trayicon.cpp" line="86"/>
         <source> is launched here.</source>
         <translation> 已隐藏于托盘。</translation>
-    </message>
-    <message>
-        <location filename="../trayicon.cpp" line="92"/>
-        <source>Select File(s) to be Sent</source>
-        <translation>请选择想要发送的文件</translation>
-    </message>
-    <message>
-        <location filename="../trayicon.cpp" line="101"/>
-        <source>Unable to open file %1. Skipping.</source>
-        <translation>无法打开文件 %1。已跳过该文件。</translation>
-    </message>
-    <message>
-        <location filename="../trayicon.cpp" line="107"/>
-        <source>%1 is not a regular file. Skipping.</source>
-        <translation>%1 不是一个普通文件。已跳过该文件。</translation>
-    </message>
-    <message>
-        <location filename="../trayicon.cpp" line="115"/>
-        <source>No file to be sent.</source>
-        <translation>无文件可发送。</translation>
     </message>
 </context>
 </TS>

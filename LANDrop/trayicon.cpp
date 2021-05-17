@@ -32,12 +32,12 @@
 
 #include <QApplication>
 #include <QDesktopServices>
-#include <QFileDialog>
-#include <QMessageBox>
+#include <QDir>
 #include <QIcon>
 #include <QTimer>
+#include <QUrl>
 
-#include "sendtodialog.h"
+#include "selectfilesdialog.h"
 #include "settings.h"
 #include "trayicon.h"
 
@@ -89,34 +89,7 @@ TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
 
 void TrayIcon::sendActionTriggered()
 {
-    QStringList filenames = QFileDialog::getOpenFileNames(nullptr, tr("Select File(s) to be Sent"));
-    if (filenames.empty())
-        return;
-
-    QList<QSharedPointer<QFile>> files;
-    foreach (const QString &filename, filenames) {
-        QSharedPointer<QFile> fp = QSharedPointer<QFile>::create(filename);
-        if (!fp->open(QIODevice::ReadOnly)) {
-            QMessageBox::critical(nullptr, QApplication::applicationName(),
-                                  tr("Unable to open file %1. Skipping.")
-                                  .arg(filename));
-            continue;
-        }
-        if (fp->isSequential()) {
-            QMessageBox::critical(nullptr, QApplication::applicationName(),
-                                  tr("%1 is not a regular file. Skipping.")
-                                  .arg(filename));
-            continue;
-        }
-        files.append(fp);
-    }
-
-    if (files.empty()) {
-        QMessageBox::warning(nullptr, QApplication::applicationName(), tr("No file to be sent."));
-        return;
-    }
-
-    SendToDialog *d = new SendToDialog(nullptr, files, discoveryService);
+    SelectFilesDialog *d = new SelectFilesDialog(nullptr, discoveryService);
     d->setAttribute(Qt::WA_DeleteOnClose);
     d->show();
 }

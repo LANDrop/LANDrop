@@ -138,8 +138,11 @@ void SelectFilesDialog::dragEnterEvent(QDragEnterEvent *event)
 
 void SelectFilesDialog::dropEvent(QDropEvent *event)
 {
-    foreach (const QUrl &url, event->mimeData()->urls()) {
-        addFile(url.toLocalFile());
+    if (event->mimeData()->hasUrls()) {
+        foreach (const QUrl &url, event->mimeData()->urls()) {
+            addFile(url.toLocalFile());
+        }
+        updateFileStringListModel();
+        event->acceptProposedAction();
     }
-    updateFileStringListModel();
 }

@@ -31,6 +31,7 @@
  */
 
 #include <QFileDialog>
+#include <QPushButton>
 
 #include "settings.h"
 #include "settingsdialog.h"
@@ -41,6 +42,9 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), ui(new Ui::Se
     ui->setupUi(this);
     setWindowFlag(Qt::WindowStaysOnTopHint);
     connect(ui->downloadPathSelectButton, &QToolButton::clicked, this, &SettingsDialog::downloadPathSelectButtonClicked);
+
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setText(tr("OK"));
+    ui->buttonBox->button(QDialogButtonBox::Cancel)->setText(tr("Cancel"));
 }
 
 SettingsDialog::~SettingsDialog()

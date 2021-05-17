@@ -48,6 +48,9 @@ SendToDialog::SendToDialog(QWidget *parent, const QList<QSharedPointer<QFile>> &
     connect(ui->hostsListView, &QListView::clicked, this, &SendToDialog::hostsListViewClicked);
     connect(ui->hostsListView, &QListView::doubleClicked, ui->buttonBox, &QDialogButtonBox::accepted);
 
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setText(tr("Send"));
+    ui->buttonBox->button(QDialogButtonBox::Cancel)->setText(tr("Cancel"));
+
     connect(&discoveryService, &DiscoveryService::newHost, this, &SendToDialog::newHost);
     connect(&discoveryTimer, &QTimer::timeout, &discoveryService, &DiscoveryService::refresh);
     discoveryTimer.start(1000);

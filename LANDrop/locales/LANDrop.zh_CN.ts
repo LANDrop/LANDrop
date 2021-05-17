@@ -221,7 +221,7 @@ Would you like to receive it?</source>
     <name>SelectFilesDialog</name>
     <message>
         <location filename="../selectfilesdialog.ui" line="17"/>
-        <location filename="../selectfilesdialog.cpp" line="92"/>
+        <location filename="../selectfilesdialog.cpp" line="95"/>
         <source>Select File(s) to be Sent</source>
         <translation>请选择想要发送的文件</translation>
     </message>
@@ -241,17 +241,27 @@ Would you like to receive it?</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../selectfilesdialog.cpp" line="68"/>
+        <location filename="../selectfilesdialog.cpp" line="52"/>
+        <source>Send</source>
+        <translation>发送</translation>
+    </message>
+    <message>
+        <location filename="../selectfilesdialog.cpp" line="53"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../selectfilesdialog.cpp" line="71"/>
         <source>Unable to open file %1. Skipping.</source>
         <translation>无法打开文件 %1。已跳过该文件。</translation>
     </message>
     <message>
-        <location filename="../selectfilesdialog.cpp" line="74"/>
+        <location filename="../selectfilesdialog.cpp" line="77"/>
         <source>%1 is not a regular file. Skipping.</source>
         <translation>%1 不是一个普通文件。已跳过该文件。</translation>
     </message>
     <message>
-        <location filename="../selectfilesdialog.cpp" line="119"/>
+        <location filename="../selectfilesdialog.cpp" line="122"/>
         <source>No file to be sent.</source>
         <translation>无文件可发送。</translation>
     </message>
@@ -279,12 +289,22 @@ Would you like to receive it?</source>
         <translation>端口</translation>
     </message>
     <message>
-        <location filename="../sendtodialog.cpp" line="111"/>
+        <location filename="../sendtodialog.cpp" line="51"/>
+        <source>Send</source>
+        <translation>发送</translation>
+    </message>
+    <message>
+        <location filename="../sendtodialog.cpp" line="52"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../sendtodialog.cpp" line="114"/>
         <source>Invalid port. Please enter a number between 1 and 65535.</source>
         <translation>无效端口。请输入一个 1 到 65535 的数字。</translation>
     </message>
     <message>
-        <location filename="../sendtodialog.cpp" line="156"/>
+        <location filename="../sendtodialog.cpp" line="159"/>
         <source>Connection timed out</source>
         <translation>连接超时</translation>
     </message>
@@ -317,7 +337,17 @@ Would you like to receive it?</source>
         <translation>可被发现</translation>
     </message>
     <message>
-        <location filename="../settingsdialog.cpp" line="61"/>
+        <location filename="../settingsdialog.cpp" line="46"/>
+        <source>OK</source>
+        <translation>确认</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.cpp" line="47"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.cpp" line="65"/>
         <source>Select Download Path</source>
         <translation>选择下载路径</translation>
     </message>

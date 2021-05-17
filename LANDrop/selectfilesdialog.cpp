@@ -48,6 +48,9 @@ SelectFilesDialog::SelectFilesDialog(QWidget *parent, DiscoveryService &discover
     connect(ui->addButton, &QPushButton::clicked, this, &SelectFilesDialog::addButtonClicked);
     connect(ui->removeButton, &QPushButton::clicked, this, &SelectFilesDialog::removeButtonClicked);
     ui->filesListView->setModel(&filesStringListModel);
+
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setText(tr("Send"));
+    ui->buttonBox->button(QDialogButtonBox::Cancel)->setText(tr("Cancel"));
 }
 
 SelectFilesDialog::~SelectFilesDialog()

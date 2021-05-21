@@ -43,9 +43,9 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     a.setOrganizationName("LANDrop");
-    a.setOrganizationDomain("landrop.github.io");
+    a.setOrganizationDomain("landrop.app");
     a.setApplicationName("LANDrop");
-    a.setApplicationVersion("0.3.0-beta1");
+    a.setApplicationVersion("0.3.0-beta2");
 
     a.setQuitOnLastWindowClosed(false);
 

@@ -113,7 +113,7 @@ jobs:
         working-directory: ./LANDrop
         run: |
           macdeployqt LANDrop.app
-          zip -r9 LANDrop-macos.zip LANDrop.app
+          zip -r9 --symlinks LANDrop-macos.zip LANDrop.app
 
       - name: Upload
         uses: actions/upload-artifact@v2

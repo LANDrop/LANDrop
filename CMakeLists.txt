@@ -38,8 +38,8 @@ if(UNIX AND NOT APPLE)
     )
 
 install(TARGETS landrop RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
-install(FILES LANDrop/icons/app.png DESTINATION share/icons/hicolor/scalable/apps)
+install(FILES LANDrop/icons/app.png DESTINATION share/icons/hicolor/1024x1024/apps/landrop.png)
 install(FILES LICENSE DESTINATION share/licenses/landrop)
-install(FILES misc/LANDrop.desktop DESTINATION share/applications)
+install(FILES misc/landrop.desktop DESTINATION share/applications)
 endif()
 

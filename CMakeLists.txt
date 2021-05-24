@@ -22,7 +22,7 @@ include(cmake/landrop.cmake)
 ## https://github.com/facebookincubator/fizz/blob/master/build/fbcode_builder/CMake/FindSodium.cmake
 include(cmake/findSodium.cmake)
 
-if(UNIX)
+if(UNIX AND NOT APPLE)
     add_executable(landrop
         ${LANDROP_QRC}
         ${LANDROP_SOURCES}
@@ -37,7 +37,9 @@ if(UNIX)
         ${sodium_LIBRARY_RELEASE}
     )
 
-install(TARGETS landrop DESTINATION ${CMAKE_INSTALL_BINDIR})
-install(FILES misc/LANDrop.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
+install(TARGETS landrop RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(FILES LANDrop/icons/app.png DESTINATION share/icons/hicolor/scalable/apps)
+install(FILES LICENSE DESTINATION share/licenses/landrop)
+install(FILES misc/LANDrop.desktop DESTINATION share/applications)
 endif()
 

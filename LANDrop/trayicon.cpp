@@ -34,6 +34,7 @@
 #include <QDesktopServices>
 #include <QDir>
 #include <QIcon>
+#include <QNetworkProxy>
 #include <QTimer>
 #include <QUrl>
 
@@ -43,6 +44,8 @@
 
 TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
 {
+    QNetworkProxy::setApplicationProxy(QNetworkProxy::NoProxy);
+
     QIcon appIcon(":/icons/app.png");
     QIcon appMaskIcon(":/icons/app_mask.png");
     appMaskIcon.setIsMask(true);

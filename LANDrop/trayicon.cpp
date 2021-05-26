@@ -54,7 +54,7 @@ TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
     QIcon settingsIcon(":/icons/settings.png");
     QIcon aboutIcon(":/icons/about.png");
     QIcon exitIcon(":/icons/exit.png");
-    if (QSysInfo::productType() == "osx")
+    if (QSysInfo::productType() == "osx" || QSysInfo::productType() == "macos")
         setIcon(appMaskIcon);
     else
         setIcon(appIcon);

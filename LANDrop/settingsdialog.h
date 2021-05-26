@@ -45,9 +45,11 @@ public:
     ~SettingsDialog();
 private:
     Ui::SettingsDialog *ui;
+    bool serverPortEdited;
 private slots:
     void accept();
     void downloadPathSelectButtonClicked();
+    void serverPortLineEditChanged();
 protected:
     void showEvent(QShowEvent *e);
 };

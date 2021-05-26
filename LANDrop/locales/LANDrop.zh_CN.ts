@@ -186,9 +186,9 @@ Would you like to receive it?</source>
 <context>
     <name>FileTransferServer</name>
     <message>
-        <location filename="../filetransferserver.cpp" line="44"/>
-        <source>Unable to listen on a port.</source>
-        <translation>无法监听任何端口。</translation>
+        <location filename="../filetransferserver.cpp" line="46"/>
+        <source>Unable to listen on port %1.</source>
+        <translation>无法监听端口 %1。</translation>
     </message>
 </context>
 <context>
@@ -284,7 +284,7 @@ Would you like to receive it?</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../sendtodialog.ui" line="42"/>
+        <location filename="../sendtodialog.ui" line="45"/>
         <source>Port</source>
         <translation>端口</translation>
     </message>
@@ -317,37 +317,57 @@ Would you like to receive it?</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../settingsdialog.ui" line="22"/>
+        <location filename="../settingsdialog.ui" line="20"/>
+        <source>Basic</source>
+        <translation>基础</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.ui" line="26"/>
         <source>Device Name</source>
         <translation>设备名</translation>
     </message>
     <message>
-        <location filename="../settingsdialog.ui" line="36"/>
+        <location filename="../settingsdialog.ui" line="40"/>
         <source>Download Path</source>
         <translation>下载路径</translation>
     </message>
     <message>
-        <location filename="../settingsdialog.ui" line="48"/>
+        <location filename="../settingsdialog.ui" line="52"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../settingsdialog.ui" line="57"/>
+        <location filename="../settingsdialog.ui" line="61"/>
         <source>Discoverable</source>
         <translation>可被发现</translation>
     </message>
     <message>
-        <location filename="../settingsdialog.cpp" line="46"/>
+        <location filename="../settingsdialog.ui" line="78"/>
+        <source>Advanced</source>
+        <translation>高级</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.ui" line="84"/>
+        <source>Server Port</source>
+        <translation>服务器端口</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.cpp" line="48"/>
         <source>OK</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../settingsdialog.cpp" line="47"/>
+        <location filename="../settingsdialog.cpp" line="49"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
         <location filename="../settingsdialog.cpp" line="65"/>
+        <source>Server port setting will take effect after you restart the app.</source>
+        <translation>服务器端口设定将在应用重启后生效。</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.cpp" line="71"/>
         <source>Select Download Path</source>
         <translation>选择下载路径</translation>
     </message>
@@ -355,37 +375,37 @@ Would you like to receive it?</source>
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../trayicon.cpp" line="63"/>
+        <location filename="../trayicon.cpp" line="66"/>
         <source>Send File(s)...</source>
         <translation>发送文件...</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="65"/>
+        <location filename="../trayicon.cpp" line="68"/>
         <source>Open Download Folder</source>
         <translation>打开下载文件夹</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="67"/>
+        <location filename="../trayicon.cpp" line="70"/>
         <source>Settings...</source>
         <translation>设置...</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="70"/>
+        <location filename="../trayicon.cpp" line="73"/>
         <source>About...</source>
         <translation>关于...</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="72"/>
+        <location filename="../trayicon.cpp" line="75"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="81"/>
+        <location filename="../trayicon.cpp" line="84"/>
         <source>Port: </source>
         <translation>端口： </translation>
     </message>
     <message>
-        <location filename="../trayicon.cpp" line="86"/>
+        <location filename="../trayicon.cpp" line="89"/>
         <source> is launched here.</source>
         <translation> 已隐藏于托盘。</translation>
     </message>

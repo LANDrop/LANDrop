@@ -56,6 +56,11 @@ bool Settings::discoverable()
     return QSettings().value("discoverable", true).toBool();
 }
 
+quint16 Settings::serverPort()
+{
+    return QSettings().value("serverPort", 0u).toUInt();
+}
+
 void Settings::setDeviceName(const QString &deviceName)
 {
     QSettings().setValue("deviceName", deviceName);
@@ -69,4 +74,9 @@ void Settings::setDownloadPath(const QString &downloadPath)
 void Settings::setDiscoverable(bool discoverable)
 {
     QSettings().setValue("discoverable", discoverable);
+}
+
+void Settings::setServerPort(quint16 serverPort)
+{
+    QSettings().setValue("serverPort", serverPort);
 }

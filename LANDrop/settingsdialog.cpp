@@ -31,6 +31,7 @@
  */
 
 #include <QFileDialog>
+#include <QMessageBox>
 #include <QPushButton>
 
 #include "settings.h"
@@ -42,6 +43,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), ui(new Ui::Se
     ui->setupUi(this);
     setWindowFlag(Qt::WindowStaysOnTopHint);
     connect(ui->downloadPathSelectButton, &QToolButton::clicked, this, &SettingsDialog::downloadPathSelectButtonClicked);
+    connect(ui->serverPortLineEdit, &QLineEdit::textChanged, this, &SettingsDialog::serverPortLineEditChanged);
 
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText(tr("OK"));
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText(tr("Cancel"));
@@ -57,6 +59,10 @@ void SettingsDialog::accept()
     Settings::setDeviceName(ui->deviceNameLineEdit->text());
     Settings::setDownloadPath(ui->downloadPathLineEdit->text());
     Settings::setDiscoverable(ui->discoverableCheckBox->isChecked());
+    Settings::setServerPort(ui->serverPortLineEdit->text().toUShort());
+    if (serverPortEdited)
+        QMessageBox::information(this, QApplication::applicationName(),
+                                 tr("Server port setting will take effect after you restart the app."));
     done(Accepted);
 }
 
@@ -68,11 +74,18 @@ void SettingsDialog::downloadPathSelectButtonClicked()
         ui->downloadPathLineEdit->setText(dir);
 }
 
+void SettingsDialog::serverPortLineEditChanged()
+{
+    serverPortEdited = true;
+}
+
 void SettingsDialog::showEvent(QShowEvent *e)
 {
     QDialog::showEvent(e);
     ui->deviceNameLineEdit->setText(Settings::deviceName());
     ui->downloadPathLineEdit->setText(Settings::downloadPath());
     ui->discoverableCheckBox->setChecked(Settings::discoverable());
+    ui->serverPortLineEdit->setText(QString::number(Settings::serverPort()));
     ui->deviceNameLineEdit->setFocus();
+    serverPortEdited = false;
 }

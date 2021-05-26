@@ -35,13 +35,15 @@
 #include "filetransferdialog.h"
 #include "filetransferreceiver.h"
 #include "filetransferserver.h"
+#include "settings.h"
 
 FileTransferServer::FileTransferServer(QObject *parent) : QObject(parent) {}
 
 void FileTransferServer::start()
 {
-    if (!server.listen())
-        throw std::runtime_error(tr("Unable to listen on a port.").toUtf8().toStdString());
+    quint16 port = Settings::serverPort();
+    if (!server.listen(QHostAddress::Any, port))
+        throw std::runtime_error(tr("Unable to listen on port %1.").arg(port).toUtf8().toStdString());
 
     connect(&server, &QTcpServer::newConnection, this, &FileTransferServer::serverNewConnection);
 }

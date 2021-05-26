@@ -38,6 +38,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="maxLength">
+        <number>5</number>
+       </property>
        <property name="placeholderText">
         <string>Port</string>
        </property>

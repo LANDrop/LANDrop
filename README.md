@@ -23,10 +23,11 @@ The AppImage we provide as the prebuilt for Linux might not work on your machine
 
 To build LANDrop:
 
-1. Download and install the dependencies: [Qt](https://www.qt.io/download-qt-installer) and [libsodium](https://libsodium.gitbook.io/doc/#downloading-libsodium)  
-    If you are using a Debian-based distro, such as Ubuntu, you can install libsodium via
+1. Download and install the dependencies: [Qt](https://www.qt.io/download-qt-installer) and [libsodium](https://libsodium.gitbook.io/doc/#downloading-libsodium)
+    If you are using a Debian or Ubuntu based distribution, you can install the required packages via
     ```
-    sudo apt install libsodium-dev
+    sudo apt-get update
+    sudo apt install git libsodium-dev qtbase5-dev qt5-qmake build-essential
     ```
 2. Clone this repository
     ```

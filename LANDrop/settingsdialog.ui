@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>242</height>
+    <height>265</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -66,6 +66,20 @@
        <widget class="QCheckBox" name="discoverableCheckBox">
         <property name="text">
          <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="checkForUpdatesLabel">
+        <property name="text">
+         <string>Check for Updates</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="checkForUpdatesButton">
+        <property name="text">
+         <string>Check</string>
         </property>
        </widget>
       </item>

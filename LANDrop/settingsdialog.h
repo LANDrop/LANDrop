@@ -50,6 +50,7 @@ private slots:
     void accept();
     void downloadPathSelectButtonClicked();
     void serverPortLineEditChanged();
+    void checkForUpdatesButtonClicked();
 protected:
     void showEvent(QShowEvent *e);
 };

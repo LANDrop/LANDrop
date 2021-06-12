@@ -30,9 +30,17 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <stdexcept>
+
+#include <QDesktopServices>
 #include <QFileDialog>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QMessageBox>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 #include <QPushButton>
+#include <QVersionNumber>
 
 #include "settings.h"
 #include "settingsdialog.h"
@@ -44,6 +52,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), ui(new Ui::Se
     setWindowFlag(Qt::WindowStaysOnTopHint);
     connect(ui->downloadPathSelectButton, &QToolButton::clicked, this, &SettingsDialog::downloadPathSelectButtonClicked);
     connect(ui->serverPortLineEdit, &QLineEdit::textChanged, this, &SettingsDialog::serverPortLineEditChanged);
+    connect(ui->checkForUpdatesButton, &QPushButton::clicked, this, &SettingsDialog::checkForUpdatesButtonClicked);
 
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText(tr("OK"));
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText(tr("Cancel"));
@@ -77,6 +86,48 @@ void SettingsDialog::downloadPathSelectButtonClicked()
 void SettingsDialog::serverPortLineEditChanged()
 {
     serverPortEdited = true;
+}
+
+void SettingsDialog::checkForUpdatesButtonClicked()
+{
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    connect(manager, &QNetworkAccessManager::finished, this, [&, manager](QNetworkReply *reply) {
+        try {
+            if (reply->error())
+                throw std::runtime_error(reply->errorString().toUtf8().toStdString());
+
+            QByteArray body = reply->readAll();
+            QJsonDocument json = QJsonDocument::fromJson(body);
+            if (!json.isObject())
+                throw std::runtime_error(tr("Failed to get latest version.").toUtf8().toStdString());
+
+            QJsonObject obj = json.object();
+            QJsonValue verJson = obj.value("desktop");
+            if (!verJson.isString())
+                throw std::runtime_error(tr("Failed to get latest version.").toUtf8().toStdString());
+
+            QString version = verJson.toString();
+            QVersionNumber curVersion = QVersionNumber::fromString(QApplication::applicationVersion());
+            QVersionNumber latestVersion = QVersionNumber::fromString(version);
+            if (latestVersion > curVersion) {
+                if (QMessageBox::question(this, QApplication::applicationName(),
+                                          tr("There is a new version %1! Do you want to update?").arg(version))
+                        == QMessageBox::Yes) {
+                    QDesktopServices::openUrl(QUrl::fromEncoded("https://landrop.app/#downloads"));
+                }
+            } else {
+                QMessageBox::information(this, QApplication::applicationName(),
+                                         tr("You have the latest version!"));
+            }
+        } catch (const std::exception &e) {
+            QMessageBox::critical(this, QApplication::applicationName(), e.what());
+        }
+        manager->deleteLater();
+        ui->checkForUpdatesButton->setEnabled(true);
+    });
+    QNetworkRequest request(QUrl("https://releases.landrop.app/versions.json"));
+    ui->checkForUpdatesButton->setEnabled(false);
+    manager->get(request);
 }
 
 void SettingsDialog::showEvent(QShowEvent *e)

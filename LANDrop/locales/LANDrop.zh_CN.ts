@@ -194,17 +194,17 @@ Would you like to receive it?</source>
 <context>
     <name>FileTransferSession</name>
     <message>
-        <location filename="../filetransfersession.cpp" line="52"/>
+        <location filename="../filetransfersession.cpp" line="54"/>
         <source>Handshaking...</source>
         <translation>正在握手...</translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="78"/>
+        <location filename="../filetransfersession.cpp" line="80"/>
         <source>Handshake failed.</source>
         <translation>握手失败。</translation>
     </message>
     <message>
-        <location filename="../filetransfersession.cpp" line="89"/>
+        <location filename="../filetransfersession.cpp" line="91"/>
         <source>Handshaking... Code: %1</source>
         <translation>正在握手... 验证码：%1</translation>
     </message>
@@ -342,34 +342,60 @@ Would you like to receive it?</source>
         <translation>可被发现</translation>
     </message>
     <message>
-        <location filename="../settingsdialog.ui" line="78"/>
+        <location filename="../settingsdialog.ui" line="75"/>
+        <source>Check for Updates</source>
+        <translation>检查更新</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.ui" line="82"/>
+        <source>Check</source>
+        <translation>检查</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.ui" line="92"/>
         <source>Advanced</source>
         <translation>高级</translation>
     </message>
     <message>
-        <location filename="../settingsdialog.ui" line="84"/>
+        <location filename="../settingsdialog.ui" line="98"/>
         <source>Server Port</source>
         <translation>服务器端口</translation>
     </message>
     <message>
-        <location filename="../settingsdialog.cpp" line="48"/>
+        <location filename="../settingsdialog.cpp" line="57"/>
         <source>OK</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../settingsdialog.cpp" line="49"/>
+        <location filename="../settingsdialog.cpp" line="58"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../settingsdialog.cpp" line="65"/>
+        <location filename="../settingsdialog.cpp" line="74"/>
         <source>Server port setting will take effect after you restart the app.</source>
         <translation>服务器端口设定将在应用重启后生效。</translation>
     </message>
     <message>
-        <location filename="../settingsdialog.cpp" line="71"/>
+        <location filename="../settingsdialog.cpp" line="80"/>
         <source>Select Download Path</source>
         <translation>选择下载路径</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.cpp" line="102"/>
+        <location filename="../settingsdialog.cpp" line="107"/>
+        <source>Failed to get latest version.</source>
+        <translation>检查最新版本失败。</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.cpp" line="114"/>
+        <source>There is a new version %1! Do you want to update?</source>
+        <translation>发现新版本 %1！你想要更新吗？</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.cpp" line="120"/>
+        <source>You have the latest version!</source>
+        <translation>你已经安装了最新版本！</translation>
     </message>
 </context>
 <context>

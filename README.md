@@ -14,7 +14,7 @@ You can download prebuilts of LANDrop from the [official website](https://landro
 - Ultra fast: uses your local network for transferring. Internet speed is not a limit.
 - Easy to use: intuitive UI. You know how to use it when you see it.
 - Secure: uses state-of-the-art cryptography algorithm. No one else can see your files.
-- No celluar data: outside? No problem. LANDrop can work on your personal hotspot, without consuming celluar data.
+- No cellular data: outside? No problem. LANDrop can work on your personal hotspot, without consuming cellular data.
 - No compression: doesn't compress your photos and videos when sending.
 
 ## Building

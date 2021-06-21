@@ -36,6 +36,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTimer>
+#include <QUrl>
 
 #include "filetransferreceiver.h"
 #include "settings.h"

@@ -91,7 +91,11 @@ void FileTransferDialog::sessionFileMetadataReady(const QList<FileTransferSessio
 {
     show();
 
+#if QT_VERSION >= 0x051000
     QString totalSizeStr = locale().formattedDataSize(totalSize, 2, QLocale::DataSizeTraditionalFormat);
+#else
+    QString totalSizeStr = locale().toString(totalSize);
+#endif
     QString msg;
     if (metadata.size() == 1) {
         msg = tr("%1 would like to share a file \"%2\" of size %3.")

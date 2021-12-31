@@ -17,6 +17,24 @@ You can download prebuilts of LANDrop from the [official website](https://landro
 - No cellular data: outside? No problem. LANDrop can work on your personal hotspot, without consuming cellular data.
 - No compression: doesn't compress your photos and videos when sending.
 
+## Install
+
+### macOS
+
+Via Homebrew:
+
+```
+brew install landrop
+```
+
+### iOS
+
+Just open the Apple App Store, search for "landrop" and install it.
+
+### Android
+
+Open the LANDrop website in the Chrome browser, download the Android apk file and install it from within Chrome.
+
 ## Building
 
 The AppImage we provide as the prebuilt for Linux might not work on your machine. You can build LANDrop by yourself if the prebuilt doesn't work for you.

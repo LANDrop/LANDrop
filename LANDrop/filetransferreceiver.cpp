@@ -164,7 +164,7 @@ void FileTransferReceiver::createNextFile()
             writingFile = nullptr;
         }
         state = FINISHED;
-        QDesktopServices::openUrl(QUrl::fromLocalFile(downloadPath));
+        //QDesktopServices::openUrl(QUrl::fromLocalFile(downloadPath));   // 2022.12.09 do not open explorer. 
         emit printMessage(tr("Done!"));
         socket->disconnectFromHost();
         QTimer::singleShot(5000, this, &FileTransferSession::ended);

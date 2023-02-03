@@ -1,0 +1,16 @@
+Source: landrop
+Section: unknown
+Priority: optional
+Maintainer: unknown <xiamengliang@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.5.1
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Browser: https://salsa.debian.org/debian/landrop
+#Vcs-Git: https://salsa.debian.org/debian/landrop.git
+Rules-Requires-Root: no
+
+Package: landrop
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>

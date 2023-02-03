@@ -51,12 +51,13 @@ RC_ICONS = icons/app.ico
 ICON = icons/app.icns
 
 unix {
-    INCLUDEPATH += /usr/local/include
-    LIBS += -L/usr/local/lib -lsodium
+    LIBS += -lsodium
+    INCLUDEPATH += /usr/include
+    LIBS += -L/usr/lib
 
     PREFIX = $$(PREFIX)
     isEmpty(PREFIX) {
-        PREFIX = /usr/local
+        PREFIX = /usr
     }
 
     binary.path = $$PREFIX/bin

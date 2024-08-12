@@ -31,12 +31,14 @@
  */
 
 #include <stdexcept>
-
+#include <array>
 #include <sodium.h>
 
 #include "crypto.h"
 
 bool Crypto::inited = false;
+
+Crypto::~Crypto() = default;
 
 Crypto::Crypto() :
     publicKey(crypto_scalarmult_BYTES, 0),
@@ -54,32 +56,36 @@ quint64 Crypto::publicKeySize()
     return crypto_aead_chacha20poly1305_IETF_KEYBYTES;
 }
 
-QByteArray Crypto::localPublicKey()
+QByteArray Crypto::localPublicKey() const
 {
     return publicKey;
 }
 
-void Crypto::setRemotePublicKey(const QByteArray &remotePublicKey)
+void Crypto::setRemotePublicKey(const QByteArray &remotePublicKey) const
 {
+    if (remotePublicKey.size() != crypto_scalarmult_BYTES) {
+        throw std::invalid_argument(tr("Invalid remote public key size.").toUtf8().toStdString());
+    }
+    
     if (crypto_scalarmult(reinterpret_cast<unsigned char *>(sessionKey.data()),
                           reinterpret_cast<const unsigned char *>(secretKey.data()),
                           reinterpret_cast<const unsigned char *>(remotePublicKey.data())) != 0)
         throw std::runtime_error(tr("Unable to calculate session key.").toUtf8().toStdString());
 }
 
-QString Crypto::sessionKeyDigest()
+QString Crypto::sessionKeyDigest() const
 {
-    QByteArray h(crypto_generichash_BYTES_MIN, 0);
-    crypto_generichash(reinterpret_cast<unsigned char *>(h.data()), h.size(),
+    std::array<unsigned char, crypto_generichash_BYTES_MIN> h;
+    crypto_generichash(h.data(), h.size(),
                        reinterpret_cast<const unsigned char *>(sessionKey.data()), sessionKey.size(),
                        nullptr, 0);
     quint64 hash = 0;
     for (int i = 0; i < 8; ++i)
-        hash |= static_cast<quint64>(static_cast<quint8>(h[i])) << (i * 8);
+          hash |= static_cast<quint64>(h[i]) << (i * 8);
     return QString("%1").arg(hash % 1000000, 6, 10, QLatin1Char('0'));
 }
 
-QByteArray Crypto::encrypt(const QByteArray &data)
+QByteArray Crypto::encrypt(const QByteArray &data) const
 {
     QByteArray cipherText(data.size() + crypto_aead_chacha20poly1305_IETF_ABYTES, 0);
     quint64 cipherTextLen;
@@ -93,7 +99,7 @@ QByteArray Crypto::encrypt(const QByteArray &data)
     return nonce + cipherText.left(cipherTextLen);
 }
 
-QByteArray Crypto::decrypt(const QByteArray &data)
+QByteArray Crypto::decrypt(const QByteArray &data) const
 {
     if (static_cast<quint64>(data.size()) < crypto_aead_chacha20poly1305_IETF_NPUBBYTES)
         throw std::runtime_error(tr("Cipher text too short.").toUtf8().toStdString());

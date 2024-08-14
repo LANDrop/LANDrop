@@ -1,3 +1,5 @@
+# Note: This repository does not reflect the latest LANDrop releases. We decided to temporarily close source LANDrop and we might re-open source it in the future. Thanks for your understanding!
+
 <img src="LANDrop/icons/banner.png" width="300">
 
 ![Package](https://github.com/LANDrop/LANDrop/workflows/Package/badge.svg)

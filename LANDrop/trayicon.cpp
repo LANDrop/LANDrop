@@ -112,6 +112,6 @@ void TrayIcon::exitActionTriggered()
 
 void TrayIcon::trayIconActivated(ActivationReason reason)
 {
-    if (reason == DoubleClick)
+    if (reason == Trigger)
         sendActionTriggered();
 }
